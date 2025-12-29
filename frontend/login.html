@@ -1,0 +1,112 @@
+<div class="min-h-screen bg-white">
+  <!-- Header -->
+  <header class="bg-[#0052CC] text-white">
+    <div class="flex items-center justify-between px-6 py-4">
+      <button
+        id="btnMenu"
+        class="flex flex-col gap-1.5 w-8 h-8 justify-center hover:opacity-80"
+        aria-label="Abrir menú"
+        type="button"
+      >
+        <span class="block w-full h-0.5 bg-white"></span>
+        <span class="block w-full h-0.5 bg-white"></span>
+        <span class="block w-full h-0.5 bg-white"></span>
+      </button>
+
+      <h1 class="text-xl font-semibold flex-1 text-center mr-8">
+        aca va el header
+      </h1>
+    </div>
+  </header>
+
+  <!-- Menú lateral (por defecto oculto) -->
+  <div id="menuOverlay" class="fixed inset-0 z-50 hidden">
+    <div
+      id="menuBackdrop"
+      class="absolute inset-0 bg-black bg-opacity-50"
+    ></div>
+
+    <aside class="absolute left-0 top-0 bottom-0 w-64 bg-white shadow-xl">
+      <div class="p-6">
+        <button
+          id="btnCloseMenu"
+          class="mb-6 text-3xl hover:text-[#0052CC]"
+          aria-label="Cerrar menú"
+          type="button"
+        >
+          ×
+        </button>
+
+        <nav class="space-y-4">
+          <button class="block w-full text-left text-[#2C3E50] hover:text-[#0052CC] py-2" type="button">
+            Inicio
+          </button>
+          <button class="block w-full text-left text-[#2C3E50] hover:text-[#0052CC] py-2" type="button">
+            Clientes
+          </button>
+          <button class="block w-full text-left text-[#2C3E50] hover:text-[#0052CC] py-2" type="button">
+            Seguros
+          </button>
+          <button class="block w-full text-left text-[#2C3E50] hover:text-[#0052CC] py-2" type="button">
+            Configuración
+          </button>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Contenido principal -->
+  <main class="flex items-center justify-center min-h-[calc(100vh-80px)]">
+    <div class="w-full max-w-md px-6">
+      <div class="space-y-6">
+        <!-- Código de Productor -->
+        <div>
+          <label for="codigoProductor" class="block text-sm font-medium text-[#2C3E50] mb-2">
+            codig.Productor
+          </label>
+          <input
+            type="text"
+            id="codigoProductor"
+            class="w-full px-4 py-3 bg-gray-200 text-[#2C3E50] rounded-none border-none focus:outline-none focus:ring-2 focus:ring-[#4A90E2]"
+            placeholder="Ingrese su código"
+          />
+        </div>
+
+        <!-- Contraseña -->
+        <div>
+          <label for="contrasena" class="block text-sm font-medium text-[#2C3E50] mb-2">
+            contraseña
+          </label>
+          <input
+            type="password"
+            id="contrasena"
+            class="w-full px-4 py-3 bg-gray-200 text-[#2C3E50] rounded-none border-none focus:outline-none focus:ring-2 focus:ring-[#4A90E2]"
+            placeholder="Ingrese su contraseña"
+          />
+        </div>
+
+        <!-- Botón Iniciar Sesión -->
+        <button
+          class="w-full py-3 bg-gray-300 hover:bg-gray-400 text-[#2C3E50] font-medium transition-colors rounded-none"
+          type="button"
+        >
+          iniciar sesion
+        </button>
+
+        <!-- Link recuperar contraseña -->
+        <div class="text-center">
+          <button class="text-sm text-[#2C3E50] hover:text-[#0052CC] underline" type="button">
+            ¿no recuerdas mail?
+          </button>
+        </div>
+      </div>
+
+      <!-- Footer info -->
+      <div class="mt-12 text-center">
+        <p class="text-xs text-gray-400">
+          Sistema de Gestión de Seguros v1.0
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
