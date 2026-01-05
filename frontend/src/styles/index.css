@@ -1,0 +1,9 @@
+/* BASE */
+@import "./base/reset.css";
+@import "./base/variables.css";
+@import "./base/global.css";
+
+/* PAGES */
+@import "./pages/login.css";
+@import "./pages/registro.css";
+@import "./pages/dashboard.css";

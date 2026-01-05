@@ -1,0 +1,105 @@
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    background: linear-gradient(135deg, var(--color-primario) 0%, #003d9e 100%);
+    color: var(--color-texto-header);
+    height: var(--header-height);
+    box-shadow: var(--sombra-md);
+}
+
+.header__container {
+    height: 100%;
+    max-width: 100%;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===== TÍTULO DEL HEADER ===== */
+.header__title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+    flex: 1;
+    text-align: center;
+    margin-right: var(--spacing-xl);
+    letter-spacing: 0.5px;
+}
+
+/* ===== BOTÓN MENÚ HAMBURGUESA ===== */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast);
+}
+
+.menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-toggle__line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-texto-header);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-normal);
+}
+
+/* Animación del menú hamburguesa */
+.menu-toggle.active .menu-toggle__line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .menu-toggle__line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== ACCIONES DEL HEADER ===== */
+.header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.header__action-btn {
+    background: transparent;
+    border: none;
+    color: var(--color-texto-header);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    transition: background-color var(--transition-fast);
+}
+
+.header__action-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .header__title {
+        font-size: var(--font-size-lg);
+        margin-right: var(--spacing-md);
+    }
+    
+    .header__container {
+        padding: 0 var(--spacing-md);
+    }
+}

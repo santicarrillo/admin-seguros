@@ -1,0 +1,119 @@
+:root {
+    /* ===== COLORES PRINCIPALES ===== */
+    --color-primario: #0050C7;          /* Azul francés */
+    --color-primario-hover: #003d9e;    /* Más oscuro */
+    --color-primario-light: #e6f0ff;    /* Más claro */
+    
+    --color-secundario: #4C8DFF;        /* Azul claro */
+    --color-secundario-hover: #3a7af0;  /* Más oscuro */
+    --color-secundario-light: #e8f2ff;  /* Más claro */
+    
+    /* ===== COLORES DE TEXTO ===== */
+    --color-texto-principal: #1a1a1a;   /* Negro suave */
+    --color-texto-secundario: #4a4a4a;  /* Gris oscuro */
+    --color-texto-terciario: #757575;   /* Gris medio */
+    --color-texto-header: #ffffff;      /* Blanco para header */
+    --color-texto-footer: #9e9e9e;      /* Gris claro para footer */
+    
+    /* ===== COLORES DE FONDO ===== */
+    --color-fondo-principal: #ffffff;   /* Blanco */
+    --color-fondo-secundario: #f5f5f5;  /* Gris muy claro */
+    --color-fondo-hover: #f0f0f0;       /* Gris hover */
+    
+    /* ===== COLORES DE INPUTS ===== */
+    --color-input-bg: #f8f9fa;          /* Gris muy suave */
+    --color-input-border: #e0e0e0;      /* Borde gris */
+    --color-input-focus: var(--color-primario);
+    --color-input-text: var(--color-texto-principal);
+    --color-placeholder: #9e9e9e;
+    
+    /* ===== COLORES DE BOTONES ===== */
+    --color-btn-primary-bg: var(--color-primario);
+    --color-btn-primary-text: #ffffff;
+    --color-btn-primary-hover: var(--color-primario-hover);
+    
+    --color-btn-secondary-bg: var(--color-secundario);
+    --color-btn-secondary-text: #ffffff;
+    --color-btn-secondary-hover: var(--color-secundario-hover);
+    
+    /* ===== COLORES DE ESTADO ===== */
+    --color-success: #10b981;           /* Verde */
+    --color-success-light: #d1fae5;
+    
+    --color-error: #ef4444;             /* Rojo */
+    --color-error-light: #fee2e2;
+    
+    --color-warning: #f59e0b;           /* Naranja */
+    --color-warning-light: #fef3c7;
+    
+    --color-info: #3b82f6;              /* Azul info */
+    --color-info-light: #dbeafe;
+    
+    /* ===== SOMBRAS ===== */
+    --sombra-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --sombra-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+    --sombra-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --sombra-lg: 0 8px 16px rgba(0, 0, 0, 0.12);
+    --sombra-xl: 0 16px 32px rgba(0, 0, 0, 0.15);
+    
+    /* ===== TIPOGRAFÍA ===== */
+    --font-principal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+                      'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'Monaco', 'Courier New', monospace;
+    
+    --font-size-xs: 0.75rem;     /* 12px */
+    --font-size-sm: 0.875rem;    /* 14px */
+    --font-size-base: 1rem;      /* 16px */
+    --font-size-lg: 1.125rem;    /* 18px */
+    --font-size-xl: 1.25rem;     /* 20px */
+    --font-size-2xl: 1.5rem;     /* 24px */
+    --font-size-3xl: 1.875rem;   /* 30px */
+    
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    
+    /* ===== ESPACIADO ===== */
+    --spacing-xs: 0.25rem;    /* 4px */
+    --spacing-sm: 0.5rem;     /* 8px */
+    --spacing-md: 1rem;       /* 16px */
+    --spacing-lg: 1.5rem;     /* 24px */
+    --spacing-xl: 2rem;       /* 32px */
+    --spacing-2xl: 3rem;      /* 48px */
+    --spacing-3xl: 4rem;      /* 64px */
+    
+    /* ===== BORDER RADIUS ===== */
+    --radius-none: 0;
+    --radius-sm: 0.25rem;     /* 4px */
+    --radius-md: 0.5rem;      /* 8px */
+    --radius-lg: 0.75rem;     /* 12px */
+    --radius-xl: 1rem;        /* 16px */
+    --radius-full: 9999px;    /* Circular */
+    
+    /* ===== TRANSICIONES ===== */
+    --transition-fast: 150ms ease-in-out;
+    --transition-normal: 250ms ease-in-out;
+    --transition-slow: 350ms ease-in-out;
+    
+    /* ===== Z-INDEX ===== */
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+    
+    /* ===== BREAKPOINTS (para usar con JS) ===== */
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-2xl: 1536px;
+    
+    /* ===== ALTURAS ===== */
+    --header-height: 64px;
+    --footer-height: 60px;
+    --sidebar-width: 280px;
+}
