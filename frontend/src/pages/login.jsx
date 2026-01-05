@@ -1,6 +1,6 @@
 import "../styles/pages/login.css";
 
-export default function Login() {
+export default function Login({setCurrentPage}) {
   return (
     <div className="login-page">
       <main className="login-main">
@@ -42,7 +42,7 @@ export default function Login() {
                 />
               </div>
 
-              <button className="btn-login" type="submit">
+              <button className="btn-login" type="submit"  onClick={()=>setCurrentPage("home")}>
                 Iniciar sesión
               </button>
 
@@ -54,7 +54,9 @@ export default function Login() {
               <div>
                 <p className="registrarse-text">
                   ¿No tenés cuenta? 
-                  <a href="/registrarse"> Registrate</a>
+                  <button type="button" className="link-recovery" onClick={() => setCurrentPage("registro")}  >
+                        Registrate
+                  </button>
                 </p>
               </div>
             </form>

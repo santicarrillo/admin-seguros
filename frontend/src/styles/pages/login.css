@@ -192,6 +192,16 @@
     color: var(--color-primario-hover);
     text-decoration: underline;
 }
+.link-recovery {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.link-recovery:focus,
+.link-recovery:focus-visible {
+    outline: none;
+}
 
 /* ===== FOOTER INFO ===== */
 .login-footer {
@@ -202,6 +212,17 @@
 }
 .registrarse-text {
     text-align: center;
+}
+.registrarse-text>a {
+    font-size: var(--font-size-sm);
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: color var(--transition-fast);
+}
+.registrarse-text>a:hover {
+    color: var(--color-primario-hover);
+    text-decoration: underline;
 }
 .login-footer-text {
     font-size: var(--font-size-xs);

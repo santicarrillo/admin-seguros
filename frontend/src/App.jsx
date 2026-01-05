@@ -5,15 +5,13 @@ import Home from "./pages/home.jsx";
 import { useState } from "react";
 
 function App() {
-  const [currentPage] = useState("login");
+  const [currentPage, setCurrentPage] = useState("login");
 
   return (
     <>
-      <p style={{ padding: 16 }}>App render OK</p>
-
-      {currentPage === "login" && <Login />}
-      {currentPage === "registro" && <Registro />}
-      {currentPage === "home" && <Home />}
+      {currentPage === "login" && <Login setCurrentPage={setCurrentPage} />}
+      {currentPage === "registro" && <Registro setCurrentPage={setCurrentPage} />}
+      {currentPage === "home" && <Home setCurrentPage={setCurrentPage} />}
     </>
   );
 }
