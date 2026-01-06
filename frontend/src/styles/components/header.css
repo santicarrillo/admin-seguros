@@ -1,105 +1,82 @@
-
 .header {
-    position: sticky;
-    top: 0;
-    z-index: var(--z-sticky);
-    background: linear-gradient(135deg, var(--color-primario) 0%, #003d9e 100%);
-    color: var(--color-texto-header);
-    height: var(--header-height);
-    box-shadow: var(--sombra-md);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-lg);
+
+  background-color: var(--color-primario);
 }
 
-.header__container {
-    height: 100%;
-    max-width: 100%;
-    padding: 0 var(--spacing-lg);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+/* IZQUIERDA = LOGO */
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* ===== TÍTULO DEL HEADER ===== */
+/* LOGO */
+.header__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #ffffff;
+  color: var(--color-primario);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 700;
+  position: relative;
+}
+
+/* SEÑA COLOR SECUNDARIO */
+.header__logo::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  background: var(--color-secundario);
+  border-radius: 999px;
+  border: 2px solid var(--color-primario);
+}
+
+/* TEXTO */
 .header__title {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-    flex: 1;
-    text-align: center;
-    margin-right: var(--spacing-xl);
-    letter-spacing: 0.5px;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 0;
 }
 
-/* ===== BOTÓN MENÚ HAMBURGUESA ===== */
-.menu-toggle {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    width: 32px;
-    height: 32px;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-xs);
-    border-radius: var(--radius-sm);
-    transition: background-color var(--transition-fast);
+.header__subtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
 }
 
-.menu-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+/* DERECHA */
+.header__right {
+  display: flex;
+  align-items: center;
 }
 
-.menu-toggle__line {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-texto-header);
-    border-radius: var(--radius-sm);
-    transition: all var(--transition-normal);
+/* BOTÓN SALIR */
+.header__btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  cursor: pointer;
 }
 
-/* Animación del menú hamburguesa */
-.menu-toggle.active .menu-toggle__line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-}
-
-.menu-toggle.active .menu-toggle__line:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active .menu-toggle__line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ===== ACCIONES DEL HEADER ===== */
-.header__actions {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-}
-
-.header__action-btn {
-    background: transparent;
-    border: none;
-    color: var(--color-texto-header);
-    cursor: pointer;
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-md);
-    transition: background-color var(--transition-fast);
-}
-
-.header__action-btn:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-    .header__title {
-        font-size: var(--font-size-lg);
-        margin-right: var(--spacing-md);
-    }
-    
-    .header__container {
-        padding: 0 var(--spacing-md);
-    }
+.header__btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.15);
 }

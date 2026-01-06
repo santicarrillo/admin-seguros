@@ -1,7 +1,11 @@
 import "../styles/pages/login.css";
+import Header from "../components/header.jsx";
 
 export default function Login({setCurrentPage}) {
+  <Header setCurrentPage={setCurrentPage} />
   return (
+      <>
+      <Header setCurrentPage={setCurrentPage} />
     <div className="login-page">
       <main className="login-main">
         <div className="login-container">
@@ -39,7 +43,7 @@ export default function Login({setCurrentPage}) {
                   type="password"
                   placeholder="Ingrese su contraseña"
                   autoComplete="current-password"
-                />
+                  />
               </div>
 
               <button className="btn-login" type="submit"  onClick={()=>setCurrentPage("home")}>
@@ -70,5 +74,6 @@ export default function Login({setCurrentPage}) {
         </div>
       </main>
     </div>
+    </>
   );
 }

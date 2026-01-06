@@ -1,8 +1,11 @@
 
     import "../styles/pages/registro.css";
+    import Header from "../components/header.jsx";
 
-export default function Registro() {
+export default function Registro({ setCurrentPage }) {
   return (
+    <>
+    <Header setCurrentPage={setCurrentPage} />
     <div className="login-page">
       <main className="login-main">
         <div className="login-container">
@@ -25,7 +28,7 @@ export default function Registro() {
                   name="nombre"
                   className="form-input"
                   placeholder="Ingrese su nombre"
-                />
+                  />
               </div>
 
               <div className="form-group">
@@ -87,5 +90,6 @@ export default function Registro() {
         </div>
       </main>
     </div>
+  </>
   );
 }
