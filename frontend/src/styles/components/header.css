@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--spacing-lg);
+  padding: 0 var(--spacing-md);
 
   background-color: var(--color-primario);
 }
@@ -22,16 +22,14 @@
 .header__logo {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: #ffffff;
-  color: var(--color-primario);
-
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  font-weight: 700;
-  position: relative;
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--sombra-sm);
 }
 
 /* SEÑA COLOR SECUNDARIO */
