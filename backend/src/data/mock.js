@@ -34,5 +34,58 @@ export const mockDB = {
       seguro: "Vida",
       estadoPago: "al_dia"
     }
+  ],
+   tiposSeguro: [
+    { idTipo: 1, nombre: "Automotor", porcentajeComision: 0.12 },
+    { idTipo: 2, nombre: "Hogar", porcentajeComision: 0.10 },
+    { idTipo: 3, nombre: "Vida", porcentajeComision: 0.15 }
+  ],
+
+  polizas: [
+    {
+      id: 1,
+      numeroPoliza: "POL-0001",
+      clienteId: 1,
+      idTipoSeguro: 1,
+      fechaInicio: "2026-01-01",
+      fechaVencimiento: "2026-12-31",
+      montoAsegurado: 15000000,
+      primaTotal: 120000,
+      estadoPoliza: "activa",
+      cantidadCuotas: 6
+    }
+  ],
+  cuotas: [
+    {
+      idCuota: 1,
+      polizaId: 1,
+      numeroCuota: 1,
+      monto: 20000,
+      fechaVencimiento: "2025-02-01",
+      pagada: true,
+      fechaPago: "2025-02-01",
+      montoMora: 0
+    },
+    {
+      idCuota: 2,
+      polizaId: 1,
+      numeroCuota: 2,
+      monto: 20000,
+      fechaVencimiento: "2025-03-01",
+      pagada: false,
+      fechaPago: null,
+      montoMora: 0
+    }
+  ],
+
+  pagos: [
+    {
+      idPago: 1,
+      idCuota: 1,
+      monto: 20000,
+      fechaPago: "2025-02-01",
+      metodoPago: "Transferencia",
+      comprobante: "TRX-0001"
+    }
   ]
 };
