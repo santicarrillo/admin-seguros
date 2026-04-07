@@ -134,13 +134,19 @@
 }
 
 /* ===== MENSAJE DE ERROR ===== */
-.form-error {
-    font-size: var(--font-size-xs);
+.form-error,
+.login-error {
+    font-size: var(--font-size-sm);
     color: var(--color-error);
+    background: var(--color-error-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
     margin-top: var(--spacing-xs);
     display: flex;
     align-items: center;
     gap: var(--spacing-xs);
+    text-align: center;
+    justify-content: center;
 }
 
 /* ===== BOTÓN DE SUBMIT ===== */
@@ -213,6 +219,16 @@
 .registrarse-text {
     text-align: center;
 }
+
+.login-demo-text {
+    text-align: center;
+    font-size: var(--font-size-xs);
+    color: var(--color-texto-terciario);
+    background: var(--color-fondo-secundario);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-sm);
+}
 .registrarse-text>a {
     font-size: var(--font-size-sm);
     color: var(--color-primario);
@@ -265,6 +281,4 @@
     .login-main {
         padding: var(--spacing-lg) var(--spacing-md);
     }
-    body { outline: 5px solid red; }
-
 }

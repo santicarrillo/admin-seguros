@@ -181,6 +181,28 @@
   color: var(--color-texto-footer);
 }
 
+/* Success message */
+.login-success {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: var(--color-success-light);
+  border-radius: var(--radius-lg);
+  color: var(--color-success);
+}
+
+.login-success p {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-lg);
+}
+
+.login-success__sub {
+  margin-top: var(--spacing-sm) !important;
+  font-size: var(--font-size-sm) !important;
+  font-weight: var(--font-weight-normal) !important;
+  opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   .login-card {
