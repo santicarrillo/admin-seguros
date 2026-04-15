@@ -1,37 +1,56 @@
-import "../styles/components/header.css";
+import Header from "../components/header.jsx";
+import "../styles/pages/home.css";
 
-export default function Header({ setCurrentPage, user, onLogout, showLogout = false }) {
+export default function Home({ user, onLogout, setCurrentPage }) {
   return (
-    <header className="header">
-      <button
-        className="header__left"
-        onClick={() => setCurrentPage(user ? "home" : "login")}
-        type="button"
-        aria-label="Ir al inicio"
-      >
-        <div className="header__logo">SG</div>
-        <div className="header__text">
-          <h1 className="header__title">Seguros Gestion</h1>
-          <p className="header__subtitle">Sistema de administracion</p>
-        </div>
-      </button>
+    <div className="home-page">
+      <Header
+        user={user}
+        onLogout={onLogout}
+        setCurrentPage={setCurrentPage}
+        showLogout={true}
+      />
 
-      <div className="header__right">
-        {user && (
-          <span className="header__user">
-            Hola, {user.nombre?.split(" ")[0] || "Usuario"}
-          </span>
-        )}
-        {showLogout && onLogout && (
-          <button
-            className="header__btn--ghost"
-            onClick={onLogout}
-            type="button"
-          >
-            Cerrar sesion
-          </button>
-        )}
-      </div>
-    </header>
+      <main className="home-main">
+        <div className="home-container">
+          <div className="home-welcome">
+            <h2 className="home-title">Bienvenido al Sistema de Gestión de Seguros</h2>
+            <p className="home-subtitle">
+              Gestiona pólizas, clientes y más de manera eficiente.
+            </p>
+          </div>
+
+          <div className="home-stats">
+            <div className="stat-card">
+              <h3 className="stat-number">150</h3>
+              <p className="stat-label">Clientes Activos</p>
+            </div>
+            <div className="stat-card">
+              <h3 className="stat-number">320</h3>
+              <p className="stat-label">Pólizas Vigentes</p>
+            </div>
+            <div className="stat-card">
+              <h3 className="stat-number">85%</h3>
+              <p className="stat-label">Satisfacción</p>
+            </div>
+          </div>
+
+          <div className="home-actions">
+            <button
+              className="btn-primary"
+              onClick={() => setCurrentPage("carteraCliente")}
+            >
+              Ver Cartera de Clientes
+            </button>
+            <button
+              className="btn-secondary"
+              onClick={() => setCurrentPage("home")}
+            >
+              Ver Reportes
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }

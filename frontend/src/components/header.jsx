@@ -1,5 +1,3 @@
-import "../styles/components/header.css";
-
 export default function Header({ setCurrentPage, user, onLogout, showLogout = false }) {
   return (
     <header className="header">

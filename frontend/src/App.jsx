@@ -17,12 +17,14 @@ function App() {
 
   // Logout global
   const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setIsAuth(false);
     setUser(null);
     setCurrentPage("login");
   };
 useEffect(() => {
-  const saved = localStorage.getItem("productor");
+  const saved = localStorage.getItem("user");
   if (saved) {
     setUser(JSON.parse(saved));
     setIsAuth(true);

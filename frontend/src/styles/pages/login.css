@@ -198,6 +198,27 @@
     color: var(--color-primario-hover);
     text-decoration: underline;
 }
+
+/* ===== ALERTAS ===== */
+.alert {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-lg);
+}
+
+.alert-error {
+    background-color: #fee;
+    color: #c33;
+    border: 1px solid #fcc;
+}
+
+/* ===== INPUTS CON ERROR ===== */
+.input-error {
+    border-color: #c33;
+    box-shadow: 0 0 0 2px rgba(204, 51, 51, 0.2);
+}
 .link-recovery {
     background: none;
     border: none;

@@ -1,154 +1,109 @@
-import "../styles/pages/registro.css";
+// frontend/src/pages/login.jsx
 import Header from "../components/header.jsx";
 import { useState } from "react";
-import * as mockApi from "../services/mockApi.js";
+import * as authService from "../services/authserve.js";
+import  "../styles/pages/login.css";
 
-export default function Registro({ setCurrentPage }) {
-  const [nombre, setNombre] = useState("");
-  const [codigo, setCodigo] = useState("");
-  const [email, setEmail] = useState("");
+export default function Login({ setCurrentPage, setIsAuth, setUser }) {
+  const [matricula, setMatricula] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState(false);
+  const [errorUsuario, setErrorUsuario] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+    setErrorUsuario(false);
+    setErrorPassword(false);
     setLoading(true);
 
-    try {
-      await mockApi.registro(nombre, codigo, email, password);
-      setSuccess(true);
-      
-      // Ir al login despues de 2 segundos
-      setTimeout(() => {
-        setCurrentPage("login");
-      }, 2000);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+    const result = await authService.login(matricula, password);
+
+    if (result.success) {
+      // Redirigir al home
+      setIsAuth(true);
+      setUser(result.user);
+      setCurrentPage("home");
+    } else {
+      setError(result.error);
+      if (result.error === "Usuario incorrecto") {
+        setErrorUsuario(true);
+      } else if (result.error === "Contraseña incorrecta") {
+        setErrorPassword(true);
+      }
     }
+
+    setLoading(false);
   };
 
   return (
-    <>
-      <Header setCurrentPage={setCurrentPage} />
-      <div className="login-page">
-        <main className="login-main">
-          <div className="login-container">
-            <section className="login-card">
-              <header className="login-header">
-                <div className="login-logo">SG</div>
-                <h1 className="login-title">Registro</h1>
-                <p className="login-subtitle">Crea tu cuenta de productor</p>
-              </header>
+    <div className="login-page">
+      <Header />
+      
+      <main className="login-main">
+        <div className="login-container">
+          <div className="login-card">
+            <div className="login-header">
+              <h2 className="login-title">Iniciar Sesión</h2>
+              <p className="login-subtitle">Sistema de Gestión de Seguros</p>
+            </div>
 
-              {success ? (
-                <div className="login-success">
-                  <p>Cuenta creada exitosamente!</p>
-                  <p className="login-success__sub">Redirigiendo al login...</p>
-                </div>
-              ) : (
-                <form className="login-form" onSubmit={handleSubmit}>
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="nombre">
-                      Nombre completo
-                    </label>
-                    <input
-                      id="nombre"
-                      name="nombre"
-                      className="form-input"
-                      placeholder="Ingresa tu nombre"
-                      value={nombre}
-                      onChange={(e) => setNombre(e.target.value)}
-                      required
-                    />
-                  </div>
+            {error && (
+              <div className="alert alert-error">
+                {error}
+              </div>
+            )}
 
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="codigo">
-                      Codigo de productor
-                    </label>
-                    <input
-                      id="codigo"
-                      name="codigo"
-                      className="form-input"
-                      placeholder="Ingresa tu codigo"
-                      value={codigo}
-                      onChange={(e) => setCodigo(e.target.value)}
-                      required
-                    />
-                  </div>
+            <div className="login-form">
+              <div className="form-group">
+                <label htmlFor="matricula" className="form-label">
+                  Número de Matrícula
+                </label>
+                <input
+                  type="text"
+                  id="matricula"
+                  className={`form-input ${errorUsuario ? 'input-error' : ''}`}
+                  value={matricula}
+                  onChange={(e) => setMatricula(e.target.value)}
+                  placeholder="Ingrese su matrícula"
+                  disabled={loading}
+                />
+              </div>
 
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="email">
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      className="form-input"
-                      placeholder="ejemplo@mail.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
+              <div className="form-group">
+                <label htmlFor="password" className="form-label">
+                  Contraseña
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  className={`form-input ${errorPassword ? 'input-error' : ''}`}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Ingrese su contraseña"
+                  disabled={loading}
+                />
+              </div>
 
-                  <div className="form-group">
-                    <label className="form-label" htmlFor="password">
-                      Contrasena
-                    </label>
-                    <input
-                      id="password"
-                      name="password"
-                      type="password"
-                      className="form-input"
-                      placeholder="********"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                  </div>
+              <button
+                onClick={handleLogin}
+                className="btn-login"
+                disabled={loading}
+              >
+                {loading ? "Iniciando sesión..." : "Iniciar sesión"}
+              </button>
 
-                  {error && <p className="login-error">{error}</p>}
-
-                  <button
-                    className="btn-login"
-                    type="submit"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <span className="loading-spinner" />
-                    ) : (
-                      "Registrarse"
-                    )}
-                  </button>
-
-                  <div className="login-form-footer">
-                    <p>Ya tienes cuenta?</p>
-                    <button
-                      type="button"
-                      className="link-recovery"
-                      onClick={() => setCurrentPage("login")}
-                    >
-                      Iniciar sesion
-                    </button>
-                  </div>
-                </form>
-              )}
-
-              <footer className="login-footer">
-                <p className="login-footer-text">
-                  Sistema de Gestion de Seguros v1.0
-                </p>
-              </footer>
-            </section>
+              <div className="login-form-footer">
+                <a href="#" className="link-recovery">
+                  ¿Olvidaste tu contraseña?
+                </a>
+              </div>
+            </div>
           </div>
-        </main>
-      </div>
-    </>
+        </div>
+      </main>
+    </div>
   );
 }
